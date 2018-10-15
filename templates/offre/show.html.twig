@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<br>
+<div class="offre">
+  <h2>{{ offre.titre }}</h2>
+  <div class="detail">
+    <strong class="entreprise">
+      {{ offre.entreprise }}
+    </strong>
+    <span class="type">
+      {{ offre.type }}
+    </span>
+  </div>
+  <br>
+  <div class="content">
+    {{ offre.description  }}
+  </div>
+  <hr>
+  <br>
+  <a href="{{ path('offre') }}">
+    <button type="button" class="btn btn-secondary" name="button">Retour</button>
+  </a>
+</div>
+
+{% endblock %}

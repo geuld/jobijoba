@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les offres{% endblock %}
+
+{% block body %}
+
+<br>
+<h1>Liste des dix premières offres : </h1>
+<br>
+<br>
+
+<section class="offres">
+
+  {% for offre in offres| slice(0, 10) %}
+
+
+      <div class="offre">
+      <a href=" {{ path('offre_show', {'id' : offre.id}) }} "><h2>{{ offre.titre }}</h2></a>
+        <div class="detail">
+          <strong class="entreprise">
+            {{ offre.entreprise }}
+          </strong>
+          <span class="type">
+            {{ offre.type }}
+          </span>
+        </div>
+        <div class="content">
+          {% if offre.description | length > 100 %}
+          {{ offre.description | raw | slice(0,100) }}
+          ...
+        {% endif %}
+        {% if offre.description | length < 100 %}
+        {{ offre.description | raw }}
+        {% endif %}
+
+        </div>
+
+        <hr>
+        <br>
+      </div>
+
+{% endfor %}
+
+</section>
+
+{% endblock %}
+
+{% block javascripts %}
+
+
+
+{% endblock %}
